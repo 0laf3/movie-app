@@ -1,0 +1,164 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding: 0;
+    margin: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Header Styling */
+header {
+    background-color: #1e90ff;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+header nav {
+    margin-top: 10px;
+}
+
+header button {
+    margin: 5px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    color: #1e90ff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+header button:hover {
+    background-color: #dfefff;
+}
+
+/* Main Section */
+main {
+    padding: 20px;
+}
+
+/* Search Section */
+#search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#search input {
+    width: 90%;
+    max-width: 500px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#search button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1e90ff;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#search button:hover {
+    background-color: #0056b3;
+}
+
+/* Movie Section */
+#movies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.movie-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 250px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 15px;
+}
+
+.movie-card h3 {
+    margin: 10px 0;
+}
+
+.movie-card button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1e90ff;
+    color: white;
+    cursor: pointer;
+}
+
+.movie-card button:hover {
+    background-color: #0056b3;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #1e90ff;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+/* Responsive Styling */
+@media (min-width: 600px) {
+    #search {
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    #search input {
+        width: 300px;
+        margin-bottom: 0;
+    }
+
+    #movies {
+        gap: 30px;
+    }
+
+    .movie-card {
+        max-width: 200px;
+    }
+}
+
+@media (min-width: 1024px) {
+    #search {
+        justify-content: space-between;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    #movies {
+        justify-content: flex-start;
+        margin: 0 auto;
+        max-width: 1200px;
+    }
+
+    .movie-card {
+        max-width: 220px;
+    }
+}
