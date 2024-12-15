@@ -3,17 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie App</title>
-    
-    <!-- Link to the main CSS file -->
+    <title>Movie Search</title>
     <link rel="stylesheet" href="styles/style.css">
-
-    <!-- Firebase SDKs -->
-    <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js"></script>
 </head>
 <body>
+
     <!-- Header Section -->
     <header>
         <h1>Movie App</h1>
@@ -22,32 +16,28 @@
             <button id="logoutButton" style="display: none;">Logout</button>
             <button id="favoritesButton" style="display: none;">Favorites</button>
         </nav>
-    </header>
-
-    <!-- Main Content -->
-    <main>
-        <!-- Search functionality -->
-        <section id="search">
+        <!-- Search Bar -->
+    <div class="search-container">
+        <form id="form">
             <input type="text" id="searchInput" placeholder="Search for movies...">
-            <button id="searchButton">Search</button>
-        </section>
-        
-        <section id="movies" aria-label="Movie results">
-            <!-- Dynamic content will be injected here -->
-        </section>
+            <button type="submit" id="searchButton">Search</button>
+        </form>
+    </div>
 
-    </main>
+    </header>
+   
+    
+    <!-- Movies Container -->
+    <div id="movies" class="movies-container" aria-label="Movie results"></div>
 
     <!-- Footer Section -->
+
     <footer>
         <p>&copy; 2024 Movie App</p>
     </footer>
 
     <!-- JavaScript Files -->
-    <script src="scripts/app.js"></script> <!-- Initializes Firebase -->
-    <script src="scripts/auth.js"></script> <!-- Handles user authentication -->
-    <script src="scripts/api.js"></script> <!-- Communicates with TMDb API -->
-    <script src="scripts/watchlist.js"></script> <!-- Manages favorites/watchlist -->
-    <script src="scripts/translate.js"></script> <!-- Handles translation -->
+    <script src="scripts/api.js" defer></script> <!-- Communicates with TMDb API -->
+
 </body>
 </html>

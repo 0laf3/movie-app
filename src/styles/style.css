@@ -42,123 +42,168 @@ header button:hover {
     background-color: #dfefff;
 }
 
-/* Main Section */
-main {
+/* Search Bar Styling */
+.search-container {
+    display: flex;
+    justify-content: center;
     padding: 20px;
 }
 
-/* Search Section */
-#search {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-#search input {
-    width: 90%;
-    max-width: 500px;
+.search-container input {
     padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-#search button {
-    padding: 10px 15px;
+    font-size: 16px;
+    width: 300px;
     border: none;
     border-radius: 5px;
-    background-color: #1e90ff;
-    color: white;
-    font-weight: bold;
+}
+
+.search-container button {
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
+    font-weight: bold;
+    color: #1e90ff;
 }
 
-#search button:hover {
-    background-color: #0056b3;
+.search-container button:hover {
+    background-color: #dfefff;
 }
 
-/* Movie Section */
-#movies {
+/* Movie Container */
+.movies-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
     justify-content: center;
+    padding: 20px;
 }
 
-.movie-card {
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+/* Movie Card Styling */
+.movie {
+    width: 300px;
+    margin: 1rem;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+.movie img {
     width: 100%;
-    max-width: 250px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    padding: 15px;
 }
 
-.movie-card h3 {
-    margin: 10px 0;
+.movie-info {
+    color: #1e90ff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem 1rem;
+    letter-spacing: 0.5px;
 }
 
-.movie-card button {
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #1e90ff;
+.movie-info h3 {
+    margin: 0;
+}
+
+.movie-info span {
     color: white;
-    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    border-radius: 3px;
+    font-weight: bold;
 }
 
-.movie-card button:hover {
-    background-color: #0056b3;
+.green {
+    background-color: #28a745;
 }
 
-/* Footer Styling */
-footer {
-    background-color: #1e90ff;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    margin-top: 20px;
+.orange {
+    background-color: #fd7e14;
+}
+
+.red {
+    background-color: #dc3545;
+}
+
+/* Movie Overview */
+.overview {
+    background-color: #fff;
+    padding: 2rem;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    max-height: 100%;
+    transform: translateY(101%);
+    transition: transform 0.3s ease-in;
+}
+
+.movie:hover .overview {
+    transform: translateY(0);
+}
+
+.overview h3 {
+    margin: 0;
 }
 
 /* Responsive Styling */
-@media (min-width: 600px) {
-    #search {
-        flex-direction: row;
-        justify-content: center;
-        gap: 10px;
+@media (max-width: 768px) {
+    /* For tablets and small screens */
+    .search-container input {
+        width: 250px;
     }
 
-    #search input {
-        width: 300px;
-        margin-bottom: 0;
+    .search-container button {
+        width: 200px;
     }
 
-    #movies {
-        gap: 30px;
+    .movies-container {
+        gap: 15px;
     }
 
-    .movie-card {
-        max-width: 200px;
+    .movie {
+        width: 250px;
     }
 }
 
-@media (min-width: 1024px) {
-    #search {
-        justify-content: space-between;
-        width: 80%;
-        margin: 0 auto;
+@media (max-width: 576px) {
+    /* For mobile devices */
+    .search-container input {
+        width: 100%;
     }
 
-    #movies {
-        justify-content: flex-start;
-        margin: 0 auto;
-        max-width: 1200px;
+    .search-container button {
+        width: 100%;
+        margin-top: 10px;
     }
 
-    .movie-card {
-        max-width: 220px;
+    .movies-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .movie {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 420px) {
+    /* For very small mobile screens */
+    .search-container input {
+        width: 100%;
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .search-container button {
+        width: 100%;
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .movie {
+        width: 100%;
     }
 }
