@@ -207,3 +207,14 @@ header button:hover {
         width: 100%;
     }
 }
+
+
+footer {
+    background-color: #1e90ff;
+    color: #FFFFFF;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 10px;
+}
