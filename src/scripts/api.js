@@ -6,6 +6,9 @@ const API_URL = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.
         const form = document.getElementById('form');
         const search = document.getElementById('searchInput');
 
+        // Show loading spinner initially
+        main.innerHTML = `<div class="loading-spinner">Loading...</div>`;
+
         // Get initial movies
         getMovies(API_URL);
 
