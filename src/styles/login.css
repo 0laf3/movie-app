@@ -1,0 +1,200 @@
+/* Modal default styling */
+.modal {
+    display: none; /* Hidden by default until triggered */
+    position: fixed; /* Fixes the modal to the viewport */
+    z-index: 1000; /* Ensures modal appears above other elements */
+    left: 0; /* Aligns modal to the left of the viewport */
+    top: 0; /* Aligns modal to the top of the viewport */
+    width: 100%; /* Full width of the viewport */
+    height: 100%; /* Full height of the viewport */
+    overflow: auto; /* Allows scrolling if content overflows */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+}
+
+/* Modal content styling */
+.modal-content {
+    background-color: #1e90ff; /* Sets the modal background color */
+    margin: 10% auto; /* Centers the modal vertically and horizontally */
+    padding: 20px; /* Adds padding inside the modal */
+    border: 1px solid #888; /* Subtle border for contrast */
+    width: 40%; /* Sets modal width to 40% of viewport */
+    position: relative; /* Required for positioning child elements */
+}
+
+/* Centered modal container */
+.modal .container {
+    background: #fff; /* White background for the main modal container */
+    width: 450px; /* Fixed width for the container */
+    padding: 1.5rem; /* Adds consistent padding */
+    margin: 50px auto; /* Centers the container */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 20px 35px rgba(0, 0, 1, 0.9); /* Drop shadow for depth */
+}
+
+/* Form styling inside modal */
+.modal form {
+    margin: 0 2rem; /* Adds spacing on sides */
+}
+
+/* Title for the form */
+.modal .form-title {
+    font-size: 1.5rem; /* Larger font size for emphasis */
+    font-weight: bold; /* Makes the text bold */
+    text-align: center; /* Centers the title */
+    padding: 1.3rem; /* Spacing around the title */
+    margin-bottom: 0.4rem; /* Space below the title */
+}
+
+/* Input fields */
+.modal input {
+    color: inherit; /* Inherits color from parent */
+    width: 100%; /* Full width of the container */
+    background-color: transparent; /* Transparent background */
+    border: none; /* Removes default border */
+    border-bottom: 1px solid #757575; /* Adds underline */
+    padding-left: 1.5rem; /* Adds left padding */
+    font-size: 15px; /* Sets font size */
+}
+
+/* Input group container */
+.modal .input-group {
+    padding: 1% 0; /* Adds vertical padding */
+    position: relative; /* Allows positioning of child elements */
+}
+
+/* Input group icon styling */
+.modal .input-group i {
+    position: absolute; /* Positions icons inside input fields */
+    color: black; /* Icon color */
+}
+
+/* Input field focus state */
+.modal input:focus {
+    background-color: transparent; /* Keeps background transparent */
+    outline: transparent; /* Removes default outline */
+    border-bottom: 2px solid hsl(327, 90%, 28%); /* Changes underline color */
+}
+
+/* Placeholder text styling */
+.modal input::placeholder {
+    color: transparent; /* Hides placeholder text */
+}
+
+/* Floating label styling */
+.modal label {
+    color: #757575; /* Initial label color */
+    position: relative; /* Allows positioning */
+    left: 1.2em; /* Positions label to the left */
+    top: -1.3em; /* Moves label above the input */
+    cursor: auto; /* Default cursor */
+    transition: 0.3s ease all; /* Smooth transition for label movement */
+}
+
+/* Floating label on input focus or filled state */
+.modal input:focus + label, 
+.modal input:not(:placeholder-shown) + label {
+    top: -3em; /* Moves label higher */
+    color: hsl(327, 90%, 28%); /* Changes label color */
+    font-size: 15px; /* Adjusts label font size */
+}
+
+/* Recovery link styling */
+.modal .recover {
+    text-align: right; /* Aligns text to the right */
+    font-size: 1rem; /* Standard font size */
+    margin-bottom: 1rem; /* Adds space below */
+}
+
+.modal .recover a {
+    text-decoration: none; /* Removes underline from links */
+    color: rgb(125, 125, 235); /* Link color */
+}
+
+.modal .recover a:hover {
+    color: blue; /* Changes color on hover */
+    text-decoration: underline; /* Adds underline on hover */
+}
+
+/* Button styling */
+.modal button {
+    font-size: 1.1rem; /* Larger font size */
+    padding: 8px 0; /* Adds vertical padding */
+    border-radius: 5px; /* Rounded corners */
+    outline: none; /* Removes outline */
+    border: none; /* Removes border */
+    width: 100%; /* Full width */
+    background: rgb(125, 125, 235); /* Button background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: 0.9s; /* Smooth hover transition */
+}
+
+.modal button:hover {
+    background: #07001f; /* Darker background on hover */
+}
+
+/* "Or" text styling */
+.modal .or {
+    font-size: 1.1rem; /* Standard font size */
+    margin-top: 0.5rem; /* Adds space above */
+    text-align: center; /* Centers text */
+}
+
+/* Icon styling */
+.modal .icons {
+    text-align: center; /* Centers icons */
+}
+
+.modal .icons i {
+    color: rgb(125, 125, 235); /* Icon color */
+    padding: 0.8rem 1.5rem; /* Adds padding around icons */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 1.5rem; /* Icon size */
+    cursor: pointer; /* Pointer cursor */
+    border: 2px solid #dfe9f5; /* Adds border */
+    margin: 0 15px; /* Spacing between icons */
+    transition: 1s; /* Smooth transition */
+}
+
+.modal .icons i:hover {
+    background: #07001f; /* Changes background on hover */
+    font-size: 1.6rem; /* Increases icon size */
+    border: 2px solid rgb(125, 125, 235); /* Changes border color */
+}
+
+/* Link container styling */
+.modal .links {
+    display: flex; /* Aligns links horizontally */
+    justify-content: space-around; /* Equal spacing between links */
+    padding: 0 4rem; /* Adds horizontal padding */
+    margin-top: 0.9rem; /* Space above links */
+    font-weight: bold; /* Bold text */
+}
+
+/* Sign-up and sign-in buttons */
+.modal #signUpButton, 
+#signInButton {
+    color: rgb(125, 125, 235); /* Button text color */
+    border: none; /* Removes border */
+    background-color: transparent; /* Transparent background */
+    font-size: 1rem; /* Standard font size */
+    font-weight: bold; /* Bold text */
+}
+
+.modal #signUpButton:hover, 
+#signInButton:hover {
+    text-decoration: underline; /* Underline on hover */
+    color: blue; /* Changes color on hover */
+}
+
+/* Message display */
+.modal .messageDiv {
+    background-color: hsl(327, 90%, 28%); /* Message background color */
+    color: white; /* Text color */
+    padding: 10px 20px; /* Adds padding */
+    margin: 10px; /* Adds margin */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1rem; /* Standard font size */
+    opacity: 0; /* Initially hidden */
+    animation: fadeOut 7s forwards; /* Fades out after 7 seconds */
+}

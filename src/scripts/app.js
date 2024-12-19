@@ -1,11 +1,22 @@
 // DOM Elements
 const loginButton = document.getElementById("loginButton");
-const signupButton = document.getElementById("signupButton");
-const logoutButton = document.getElementById("logoutButton");
-const favoritesButton = document.getElementById("favoritesButton");
+
+const signUpButton=document.getElementById('signUpButton');
+const signInButton=document.getElementById('signInButton');
+const signInForm=document.getElementById('signIn');
+const signUpForm=document.getElementById('signup');
+
+signUpButton.addEventListener('click',function(){
+    signInForm.style.display="none";
+    signUpForm.style.display="block";
+})
+signInButton.addEventListener('click', function(){
+    signInForm.style.display="block";
+    signUpForm.style.display="none";
+})
 
 const loginModal = document.getElementById("modal-login");
-const signupModal = document.getElementById("modal-signup");
+
 
 // Utility function to open a modal
 function openModal(modal) {
@@ -22,33 +33,9 @@ window.addEventListener("click", (event) => {
   if (event.target === loginModal) {
     closeModal(loginModal);
   }
-  if (event.target === signupModal) {
-    closeModal(signupModal);
-  }
 });
 
 // Attach click events to open modals
 loginButton.addEventListener("click", () => {
   openModal(loginModal);
-});
-
-signupButton.addEventListener("click", () => {
-  openModal(signupModal);
-});
-
-// Close button functionality for modals
-document.querySelectorAll(".modal .modal-content").forEach((content) => {
-  const closeButton = document.createElement("span");
-  closeButton.textContent = "X";
-  closeButton.style.cssText =
-    "position:absolute;top:10px;right:10px;cursor:pointer;font-weight:bold;";
-  content.appendChild(closeButton);
-
-  closeButton.addEventListener("click", () => {
-    if (content.parentElement.id === "modal-login") {
-      closeModal(loginModal);
-    } else if (content.parentElement.id === "modal-signup") {
-      closeModal(signupModal);
-    }
-  });
 });

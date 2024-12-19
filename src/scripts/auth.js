@@ -1,74 +1,96 @@
-// Import Firebase
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
 
-// Firebase configuration
-const firebaseConfig = {
-    apiKey: "AIzaSyCE6tZeRg14AW850GsORfxQOjKLB6-yDrk",
-    authDomain: "test-49104.firebaseapp.com",
-    projectId: "test-49104",
-    storageBucket: "test-49104.firebasestorage.app",
-    messagingSenderId: "551491932990",
-    appId: "1:551491932990:web:443b8481e51a3ec773d26f",
-    measurementId: "G-3S0GSVM73B",
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+  import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
+  import { getFirestore, setDoc, doc } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js";
+
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyABJiIsJFPbuYZn0TawvN_ZCkpZwgg0aVg",
+    authDomain: "movie-app-dffd3.firebaseapp.com",
+    projectId: "movie-app-dffd3",
+    storageBucket: "movie-app-dffd3.firebasestorage.app",
+    messagingSenderId: "202778227098",
+    appId: "1:202778227098:web:662e31c628a17a76fe0a23"
   };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
 
-// DOM Elements
-const loginButton = document.getElementById("loginButton");
-const logoutButton = document.getElementById("logoutButton");
-const favoritesButton = document.getElementById("favoritesButton");
-
-// Handle authentication state
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    // User is logged in
-    loginButton.style.display = "none";
-    logoutButton.style.display = "inline-block";
-    favoritesButton.style.display = "inline-block";
-  } else {
-    // User is logged out
-    loginButton.style.display = "inline-block";
-    logoutButton.style.display = "none";
-    favoritesButton.style.display = "none";
+  function showMessage(message, divId){
+    var messageDiv = document.getElementById(divId);
+    messageDiv.style.display = "block";
+    messageDiv.innerHTML = message;
+    messageDiv.style.opacity = 1;
+    setTimeout(function(){
+        messageDiv.style.opacity = 0;
+    }, 5000)
   }
-});
 
-// Login functionality
-loginButton.addEventListener("click", () => {
-  const email = prompt("Enter your email:");
-  const password = prompt("Enter your password:");
+  const signUp = document.getElementById('submitSignUp');
+  signUp.addEventListener('click', (Event)=>{
+    Event.preventDefault();
+    const email = document.getElementById('rEmail').value;
+    const password = document.getElementById('rPassword').value;
+    const firstName = document.getElementById('fName').value;
+    const lastName = document.getElementById('lName').value
+    
+    const auth = getAuth(app);
+    const db = getFirestore(app);
 
-  if (email && password) {
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        alert(`Welcome back, ${userCredential.user.email}!`);
-      })
-      .catch((error) => {
-        console.error("Login error:", error.message);
-        alert("Login failed. Please try again.");
-      });
-  } else {
-    alert("Email and password are required to login.");
-  }
-});
-
-// Logout functionality
-logoutButton.addEventListener("click", () => {
-  signOut(auth)
-    .then(() => {
-      alert("You have logged out successfully.");
+// create account
+    createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) =>{
+        const user = userCredential.user;
+        const userData = {
+            email: email,
+            firstName: firstName,
+            lastName: lastName
+        };
+        showMessage('Account Created SuccessFully', 'signUpMessage');
+        const docRef = doc(db, "users", user.uid);
+        setDoc(docRef, userData). then(() =>{
+            window.location.href = 'index.html';
+        })
+        .catch((error) =>{
+            console.error("Error writing document", error)
+        });
     })
-    .catch((error) => {
-      console.error("Logout error:", error.message);
-      alert("Failed to logout. Please try again.");
-    });
-});
+    .catch((error) =>{
+        const errorCode = error.code;
+        if( errorCode =='auth/email-already-in-use'){
+            showMessage('Email Address Already Exists!!!', 'signUpMessage');
+        }
+        else{
+            showMessage('unable to create User', 'SignUpMessage');
+        }
+    })
+  });
 
-// Favorites button functionality
-favoritesButton.addEventListener("click", () => {
-  alert("Favorites feature coming soon!");
-});
+  // Login function
+
+  const signIn = document.getElementById('submitSignIn');
+  signIn.addEventListener('click', (event) =>{
+    event.preventDefault();
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const auth = getAuth(app);
+
+    signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) =>{
+        showMessage('login successful', 'signInMessage');
+        const user = userCredential.user;
+        localStorage.setItem('loggedInUserId', user.uid);
+        window.location.href = 'homepage.html';
+    })
+    .catch ((error) =>{
+        const errorCode = error.code;
+        if(errorCode ==='auth/invalid-credential'){
+            showMessage('Incorrect Email or Password', 'signInMessage');
+        }
+        else{
+            showMessage('Account does not Exist', 'signInMessage');
+        }
+    })
+  })
