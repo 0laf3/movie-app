@@ -1,0 +1,43 @@
+/* Modal default styling */
+.modalProfile {
+    display: none; /* Hidden by default until triggered */
+    position: fixed; /* Fixes the modal to the viewport */
+    z-index: 1000; /* Ensures modal appears above other elements */
+    left: 0; /* Aligns modal to the left of the viewport */
+    top: 0; /* Aligns modal to the top of the viewport */
+    width: 100%; /* Full width of the viewport */
+    height: 100%; /* Full height of the viewport */
+    overflow: auto; /* Allows scrolling if content overflows */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+}
+
+/* Modal content styling */
+
+
+/* Centered modal container */
+.modalProfile .container {
+    background: #fff; /* White background for the main modal container */
+    width: 450px; /* Fixed width for the container */
+    padding: 1.5rem; /* Adds consistent padding */
+    margin: 50px auto; /* Centers the container */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 20px 35px rgba(0, 0, 1, 0.9); /* Drop shadow for depth */
+}
+
+/* Button styling */
+.modalProfile button {
+    font-size: 1.1rem; /* Larger font size */
+    padding: 8px 0; /* Adds vertical padding */
+    border-radius: 5px; /* Rounded corners */
+    outline: none; /* Removes outline */
+    border: none; /* Removes border */
+    width: 100%; /* Full width */
+    background: rgb(125, 125, 235); /* Button background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: 0.9s; /* Smooth hover transition */
+}
+
+.modal button:hover {
+    background: #07001f; /* Darker background on hover */
+}

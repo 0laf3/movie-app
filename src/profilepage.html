@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie App</title>
+    <script type="module" src="scripts/profilepage.js"></script>
+    <script type="module" src="scripts/profileModal.js"></script>
+    <link rel="stylesheet" href="styles/profilepage.css">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Welcome to your Profile</h1>
+        <nav>
+            <button id="logout">Logout</button>
+            <button id="favoritesButton" style="display: inline;">Favorites</button>
+            <button id="profileInfo" style="display: inline;">Profile Info</button>
+        </nav>
+        <!-- Search Bar -->
+        <div class="search-container">
+            <form id="form">
+                <input type="text" id="searchInput" placeholder="Search for movies...">
+                <button type="submit" id="searchButton">Search</button>
+            </form>
+        </div>
+    </header>
+
+    <!-- PROFILE MODAL -->
+    <div id="modal-profile" class="modalProfile" style="display: none;">
+        <div class="modal-content">
+            <div class="container">
+                <h1 class="form-title">Information</h1>
+                <div class="input-group">First Name: <span id="loggedUserFName"></span></div>
+                <div class="input-group">Last Name: <span id="loggedUserLName"></span></div>
+                <div class="input-group">Email: <span id="loggedUserEmail"></span></div>
+                
+                <!-- Close Button -->
+                <button id="closeModalButton">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Movies Container -->
+    <div id="movies" class="movies-container" aria-label="Movie results"></div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Movie App | João Sebastião Capindissa</p>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="scripts/api.js" defer></script> <!-- Communicates with TMDb API -->
+    <script src="scripts/app.js" defer></script>
+    
+ 
+</body>
+</html>
